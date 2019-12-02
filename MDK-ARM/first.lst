@@ -1,0 +1,88 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             appcode, CODE, READONLY
+    2 00000000                 IMPORT           main
+    3 00000000                 IMPORT           SystemClock_Config
+    4 00000000         ;IMPORT MX_SPI1_Init 
+    5 00000000         ;IMPORT MX_GPIO_Init
+    6 00000000                 EXPORT           __main
+    7 00000000                 ENTRY
+    8 00000000         __main  FUNCTION
+    9 00000000         ; IGNORE THIS PART  
+   10 00000000         
+   11 00000000 F7FF FFFE       BL               main
+   12 00000004 F7FF FFFE       BL               SystemClock_Config
+   13 00000008         ;BL MX_SPI1_Init
+   14 00000008         ;BL MX_GPIO_Init
+   15 00000008 E7FF            B                stop
+   16 0000000A         
+   17 0000000A E7FE    stop    B                stop
+   18 0000000C                 ENDFUNC
+   19 0000000C                 END
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
+erwork --depend="lis 3dsh\first.d" -o"lis 3dsh\first.o" -I.\RTE\_LIS_3DSH -I"C:
+\Users\Sreekar Appana\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Includ
+e" -I"C:\Users\Sreekar Appana\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.14.0
+\Drivers\CMSIS\Device\ST\STM32F4xx\Include" --predefine="__EVAL SETA 1" --prede
+fine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 528" --predefine="
+_RTE_ SETA 1" --predefine="STM32F407xx SETA 1" --list=first.lst ..\Src\first.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+__main 00000000
+
+Symbol: __main
+   Definitions
+      At line 8 in file ..\Src\first.s
+   Uses
+      At line 6 in file ..\Src\first.s
+Comment: __main used once
+appcode 00000000
+
+Symbol: appcode
+   Definitions
+      At line 1 in file ..\Src\first.s
+   Uses
+      None
+Comment: appcode unused
+stop 0000000A
+
+Symbol: stop
+   Definitions
+      At line 17 in file ..\Src\first.s
+   Uses
+      At line 15 in file ..\Src\first.s
+      At line 17 in file ..\Src\first.s
+
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+SystemClock_Config 00000000
+
+Symbol: SystemClock_Config
+   Definitions
+      At line 3 in file ..\Src\first.s
+   Uses
+      At line 12 in file ..\Src\first.s
+Comment: SystemClock_Config used once
+main 00000000
+
+Symbol: main
+   Definitions
+      At line 2 in file ..\Src\first.s
+   Uses
+      At line 11 in file ..\Src\first.s
+Comment: main used once
+2 symbols
+341 symbols in table
