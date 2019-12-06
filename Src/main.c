@@ -42,17 +42,33 @@ static void MX_SPI1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
 LIS3DSH_DataScaled myData;
 
 uint8_t drdyFlag=0;
+
+
 /* USER CODE END 0 */
 
 /**
   * @brief  The application entry point.
   * @retval int
   */
+	
+	void __main1();
+	
 int main(void)
 {
+
+
+__ASM 
+	{
+	BL __main1
+	}
+
+
+
+
   /* USER CODE BEGIN 1 */
 	LIS3DSH_InitTypeDef myAccConfigDef;
   /* USER CODE END 1 */
@@ -93,7 +109,9 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1)
+ // while (1)
+ int i;
+ for(i=0;i<2;i=i+1)
   {
     /* USER CODE END WHILE */
 
@@ -287,5 +305,3 @@ void assert_failed(uint8_t *file, uint32_t line)
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
